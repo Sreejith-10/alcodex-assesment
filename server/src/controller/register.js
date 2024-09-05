@@ -12,8 +12,7 @@ export const registerUser = async (req, res) => {
 
 	try {
 		if (!exist) {
-			const salt = await bcrypt.genSalt(12);
-			const hash = await bcrypt.hash(password, salt);
+			const hash = await bcrypt.hash(password, 12);
 
 			const user = await AuthModel.create({
 				userName: name,
@@ -35,6 +34,7 @@ export const registerUser = async (req, res) => {
 			return res.status(409).json({message: "email already exist"});
 		}
 	} catch (error) {
+		console.log(error);
 		return res.status(500).json({message: "something went wrong"});
 	}
 };

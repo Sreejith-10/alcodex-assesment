@@ -11,6 +11,13 @@ const app = express();
 
 const PORT = 3000;
 
+app.use(
+	cors({
+		origin: process.env.CLIENT,
+		credentials: true,
+		methods: ["GET", "POST", "PUT", "DELETE"],
+	})
+);
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cookieParser());

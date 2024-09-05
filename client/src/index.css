@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities
+@tailwind utilities;
+
+@layer utilities {
+	.bg-highlight {
+		background: #bc9b5d;
+	}
+
+	.text-highlight {
+		color: #bc9b5d;
+	}
+}
