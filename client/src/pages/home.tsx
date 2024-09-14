@@ -11,11 +11,11 @@ const Home = () => {
 		setIsLogged(false)
 	}
 
-	return <div>
+	return <div className="w-full h-[40dvh] flex items-center justify-center">
 		{
-			isLogged ? <div>
-				<h1>Wlcome back user</h1>
-				<button onClick={logout}>Logout</button>
+			isLogged ? <div className="flex items-center flex-col gap-4">
+				<h1 className="text-3xl font-bold">Wlcome back user</h1>
+				<button className="bg-highlight text-white font-bold py-2 px-4 rounded" onClick={logout}>Logout</button>
 			</div> : <div>
 				<h1>Please authenticate</h1>
 				<Link to={"/login"}>Login</Link>
