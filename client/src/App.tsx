@@ -4,13 +4,15 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
+import { isAuthenticated } from "./utils/isAuthenticated";
+
 
 const router = createBrowserRouter([
 	{path: "/", element: <Home />},
-	{path: "/login", element: <Login />},
+	{path: "/login", element: isAuthenticated() ? <Home /> :  <Login /> },
 	{
 		path: "/signup",
-		element: <Signup />,
+		element: isAuthenticated() ? <Home /> :  <Signup />,
 	},
 ]);
 

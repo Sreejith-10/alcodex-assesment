@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { isAuthenticated } from "../utils/isAuthenticated";
 
-function isAuth(){
-	const auth = Boolean(localStorage.getItem("token"))
-	return auth
-}
 
 const Home = () => {
-    const [isLogged, setIsLogged] = useState(isAuth)
+    const [isLogged, setIsLogged] = useState(isAuthenticated)
 
 	const logout = () => {
 		localStorage.removeItem("token")
