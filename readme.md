@@ -93,7 +93,7 @@ POST /auth/signup
 | :-------- | :----- | :------------------------------------ |
 | name      | string | _Required_. name of the user          |
 | email     | string | _Required_. email of the user         |
-| passowrd  | string | _Required_. passoword for the account |
+| password  | string | _Required_. passoword for the account |
 
 #### Login user
 
@@ -105,4 +105,4 @@ POST /auth/login
 | Parameter | Type   | Description                          |
 | :-------- | :----- | :----------------------------------- |
 | email     | string | _Required_. email of the account     |
-| passowrd  | string | _Required_. passoword of the account |
+| passoword  | string | _Required_. passoword of the account |
