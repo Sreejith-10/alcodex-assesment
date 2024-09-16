@@ -75,10 +75,10 @@ Now the project will be running on http://localhost:5173
 
 Setup necesseary environment variables in the server folder
 
-- PORT
-- MONGO_URI
-- JWTSERCRET
-- CLIENT
+- PORT :- port for the server
+- MONGO_URI :- mongodb url
+- JWTSERCRET :- secret for jwt
+- CLIENT :- front end url
 
 ## API Reference
 
