@@ -1,4 +1,4 @@
-Assignment
+# Alcodex Assesment
 
 ## Tech Used
 
@@ -31,7 +31,6 @@ Assignment
   A middleware library for Express.js that simplifies authentication using JSON Web Tokens (JWT).
   Enables secure user authentication and authorization by managing token generation, verification, and attaching user information to requests.
 
-
 ## Run Locally
 
 Clone the project
@@ -39,7 +38,7 @@ Clone the project
 bash
 
 ```
-git clone https://github.com/Sreejith-10/assignment-lending-buddha.git
+git clone https://github.com/Sreejith-10/alcodex-assesment.git
 ```
 
 Go to the project directory
@@ -78,66 +77,10 @@ Setup necesseary environment variables in the server folder
 
 - PORT
 - MONGO_URI
-- JWT_SECRET
+- JWTSERCRET
+- CLIENT
 
 ## API Reference
-
-#### Get all users
-
-```
-http
-GET /api/user/get-all-users
-```
-
-#### Get single user
-
-```
-http
-GET /api/user/get-user/${id}
-```
-
-| Parameter | Type   | Description                     |
-| :-------- | :----- | :------------------------------ |
-| id        | string | _Required_. Id of item to fetch |
-
-#### Create user
-
-```
-http
-POST /api/user/create-user
-```
-
-| Parameter | Type   | Description                          |
-| :-------- | :----- | :----------------------------------- |
-| name      | string | _Required_. name of the user         |
-| email     | string | _Required_. email of the user        |
-| token     | string | _Required_. token for authentication |
-
-#### Update user
-
-```
-http
-PUT /api/user/update-user
-```
-
-| Parameter | Type   | Description                              |
-| :-------- | :----- | :--------------------------------------- |
-| id        | string | _Required_. id of the user to be updated |
-| name      | string | _Optional_. name toe be updated          |
-| email     | string | _Optional_. email to be updated          |
-| token     | string | _Required_. token for authentication     |
-
-#### Delete user
-
-```
-http
-POST /api/user/delete-user
-```
-
-| Parameter | Type   | Description                              |
-| :-------- | :----- | :--------------------------------------- |
-| id        | string | _Required_. id of the user to be removed |
-| token     | string | _Required_. token for authentication     |
 
 #### Register user
 

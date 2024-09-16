@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @layer base{
+	@font-face{
+		font-family: ;
+	}
+} */
+
 @layer utilities {
 	.bg-highlight {
 		background: #bc9b5d;

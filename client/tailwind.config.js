@@ -12,6 +12,9 @@ export default {
 				xs: {max: "460px"},
 			},
 		},
+		fontFamily: {
+			sans: ["Plus Jakarta Sans", "sans-serif"],
+		},
 	},
 	plugins: [],
 };
