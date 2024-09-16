@@ -2,13 +2,14 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {useState} from "react";
 import {useForm} from "react-hook-form";
 import {FaApple, FaEye, FaEyeSlash, FaFacebook, FaGoogle} from "react-icons/fa";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import * as z from "zod";
 import {loginSchema} from "../schema/loginSchema";
 import axios from "axios";
 
 const Login = () => {
 	const [showPass, setShowPass] = useState(false);
+	const navigate = useNavigate();
 
 	const {
 		register,
@@ -22,13 +23,14 @@ const Login = () => {
 		},
 	});
 
-	const submitHandler = async (data: z.infer<typeof loginSchema>) => {
-		const res = await axios.post(
+	const submitHandler = async (values: z.infer<typeof loginSchema>) => {
+		const {data} = await axios.post<{token: string}>(
 			"http://localhost:3000/auth/login",
-			{...data},
+			{...values},
 			{headers: {"Content-Type": "application/json"}, withCredentials: true}
 		);
-		console.log(res);
+		localStorage.setItem("token", JSON.stringify(data.token));
+		navigate("/");
 	};
 
 	return (
