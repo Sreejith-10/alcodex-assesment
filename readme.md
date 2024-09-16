@@ -86,7 +86,7 @@ Setup necesseary environment variables in the server folder
 
 ```
 http
-POST /api/auth/signup
+POST /auth/signup
 ```
 
 | Parameter | Type   | Description                           |
@@ -99,7 +99,7 @@ POST /api/auth/signup
 
 ```
 http
-POST /api/auth/login
+POST /auth/login
 ```
 
 | Parameter | Type   | Description                          |
