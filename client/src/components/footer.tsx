@@ -4,12 +4,12 @@ import {FaXTwitter} from "react-icons/fa6";
 
 const Footer = () => {
 	return (
-		<div className="w-full h-auto py-[70px] px-[64px] flex flex-col gap-[80px] border-t border-black">
-			<div className="w-full flex gap-[128px] justify-between">
-				<div className="w-[500px] h-[240px]">
-					<span className="text-[72px] font-[800]">CastMe</span>
+		<div className="w-full h-auto md:h-auto py-[70px] px-[64px] md:py-10 md:px-8 flex flex-col gap-[80px] border-t border-black ">
+			<div className="w-full flex gap-[128px] justify-between md:flex-col md:gap-10">
+				<div className="w-[500px] h-[240px] md:h-[140px] sm:w-auto">
+					<span className="text-[72px] font-[800] md:text-[64px]">CastMe</span>
 				</div>
-				<div className="w-[684px] h-[240px] flex gap-[80px]">
+				<div className="w-[684px] h-[240px] md:w-full md:h-auto flex gap-[80px] md:gap-10 md:justify-between">
 					<div className="space-y-[16px]">
 						<h2 className="font-[600]">Column One</h2>
 						<ul className="space-y-[16px]">
@@ -67,14 +67,14 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-			<div className="w-full h-[20px] space-y-5">
+			<div className="w-full h-[20px] sm:h-auto xs:h-auto space-y-5">
 				<div className="w-full h-[1px] bg-black" />
-				<div className="w-full h-[21px] flex justify-between">
+				<div className="w-full h-[21px] sm:h-auto flex justify-between sm:flex-col sm:gap-5">
 					<div className="flex items-center">
 						<BiCopyright />
 						<h2>2024 INFOLITZ. All rights reserved</h2>
 					</div>
-					<div className="flex gap-[24px]">
+					<div className="flex gap-[24px] sm:gap-4">
 						<span className="underline underline-offset-2 cursor-pointer">
 							Privacy Policy
 						</span>

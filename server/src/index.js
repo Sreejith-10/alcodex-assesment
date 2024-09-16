@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import router from "./route/authRoute.js";
-import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import database from "./config/db.js";
 
@@ -20,7 +19,6 @@ app.use(
 );
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cookieParser());
 
 app.use("/auth", router);
 

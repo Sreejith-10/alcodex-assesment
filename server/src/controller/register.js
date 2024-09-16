@@ -26,10 +26,7 @@ export const registerUser = async (req, res) => {
 				{expiresIn: "12h"}
 			);
 
-			return res
-				.cookie("token", token)
-				.status(201)
-				.json({message: "user signed in"});
+			return res.status(201).json({message: "user signed in"});
 		} else {
 			return res.status(409).json({message: "email already exist"});
 		}

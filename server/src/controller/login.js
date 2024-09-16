@@ -32,12 +32,11 @@ export const loginUser = async (req, res) => {
 						{expiresIn: "12h"}
 					);
 
-					return res
-						.cookie("token", token, {maxAge: 1000 * 60 * 60 * 10})
-						.status(200)
-						.json({message: "user signed in", token});
+					return res.status(200).json({message: "user signed in", token});
 				}
 			}
+		} else {
+			return res.status(404).json({message: "use with email does not exist"});
 		}
 	} catch (error) {
 		console.log(error);

@@ -21,7 +21,7 @@ const toastVarients = cva(
 			variant: {
 				success:
 					"border border-emerald-500 bg-emerald-200 text-emerald-600 z-50",
-				error: "bg-red-200 border border-destructive text-destructive",
+				error: "bg-red-200 border border-red-500 text-red-500",
 				info: "bg-yellow-300 dark:bg-yellow-500 border border-yellow-500 text-slate-800 dark:text-slate-800",
 			},
 		},
@@ -33,7 +33,7 @@ const toastVarients = cva(
 
 const icons: Record<string, JSX.Element> = {
 	success: <FaCheckCircle />,
-	error: <FaTriangleExclamation />,
+	error: <FaTriangleExclamation className="text-red-500" />,
 	info: <FaExclamation />,
 };
 

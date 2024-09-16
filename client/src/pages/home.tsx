@@ -36,18 +36,18 @@ const Home = () => {
 				</div>
 			) : (
 				<div className="space-y-4">
-					<h1 className="font-semibold text-3xl">
+					<h1 className="font-semibold text-3xl sm:text-wrap">
 						Please authenticate yourself
 					</h1>
 					<div className="flex gap-5 items-center justify-center">
 						<Link
 							to={"/login"}
-							className="w-full py-[14px] text-center bg-highlight rounded-md uppercase text-white font-[700]">
+							className="w-full sm:w-[50%] py-[14px] text-center bg-highlight rounded-md uppercase text-white font-[700]">
 							Login
 						</Link>
 						<Link
 							to={"/signup"}
-							className="w-full py-[14px] text-center bg-highlight rounded-md uppercase text-white font-[700] hover:bg-highlight/20">
+							className="w-full sm:w-[50%] py-[14px] text-center bg-highlight rounded-md uppercase text-white font-[700] ">
 							Signup
 						</Link>
 					</div>

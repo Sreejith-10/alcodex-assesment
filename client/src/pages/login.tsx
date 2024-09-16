@@ -5,16 +5,20 @@ import {FaApple, FaEye, FaEyeSlash, FaFacebook, FaGoogle} from "react-icons/fa";
 import {Link, useNavigate} from "react-router-dom";
 import * as z from "zod";
 import {loginSchema} from "../schema/loginSchema";
-import axios from "axios";
+import axios, {AxiosError} from "axios";
+import {useToast} from "../hooks";
+import {LuLoader2} from "react-icons/lu";
 
 const Login = () => {
 	const [showPass, setShowPass] = useState(false);
 	const navigate = useNavigate();
 
+	const toast = useToast();
+
 	const {
 		register,
 		handleSubmit,
-		formState: {errors},
+		formState: {errors, isSubmitting},
 	} = useForm<z.infer<typeof loginSchema>>({
 		resolver: zodResolver(loginSchema),
 		defaultValues: {
@@ -24,24 +28,50 @@ const Login = () => {
 	});
 
 	const submitHandler = async (values: z.infer<typeof loginSchema>) => {
-		const {data} = await axios.post<{token: string}>(
-			"http://localhost:3000/auth/login",
-			{...values},
-			{headers: {"Content-Type": "application/json"}, withCredentials: true}
-		);
-		localStorage.setItem("token", JSON.stringify(data.token));
-		navigate("/");
+		try {
+			const {data} = await axios.post<{token: string; message: string}>(
+				"http://localhost:3000/auth/login",
+				{...values},
+				{headers: {"Content-Type": "application/json"}, withCredentials: true}
+			);
+			localStorage.setItem("token", JSON.stringify(data.token));
+			toast?.add({
+				title: "success",
+				description: data.message,
+				duration: 3000,
+				variant: "success",
+			});
+			navigate("/");
+		} catch (error) {
+			console.log(error);
+			const err = error as AxiosError<{message: string}>;
+			if (err.message === "Network Error") {
+				toast?.add({
+					title: "Network error",
+					description: "something went wrong",
+					duration: 3000,
+					variant: "error",
+				});
+				return;
+			}
+			toast?.add({
+				title: "error",
+				description: err.response?.data.message,
+				duration: 3000,
+				variant: "error",
+			});
+		}
 	};
 
 	return (
-		<div className="w-full h-auto flex">
-			<div className="w-1/2 flex items-center justify-center">
-				<div className="w-full h-full py-20 px-40 flex flex-col items-center">
+		<div className="w-full h-auto flex lg:flex-col-reverse lg:items-center">
+			<div className="w-1/2 md:w-full flex items-center justify-center">
+				<div className="w-full h-full py-20 px-40 md:px-20 xs:px-10 md:py-8 flex flex-col items-center md:justify-center">
 					<form
 						action=""
-						className="w-[495px] space-y-10"
+						className="w-[495px] space-y-10 md:w-full"
 						onSubmit={handleSubmit(submitHandler)}>
-						<div className="w-[495px] h-[40px] relative">
+						<div className="w-[495px] md:w-[100%] h-[40px] relative">
 							<input
 								{...register("email")}
 								type="text"
@@ -59,9 +89,10 @@ const Login = () => {
 							</label>
 							<div className="text-red-500">{errors.email?.message}</div>
 						</div>
-						<div className="w-[495px] h-[40px] relative">
+						<div className="w-[495px] md:w-[100%] h-[40px] relative">
 							<input
 								{...register("password")}
+								autoComplete="current-password"
 								type={showPass ? "text" : "password"}
 								className={`w-full h-full border rounded-md peer p-5 ${
 									errors.password?.message ? "border-red-500" : " border-black"
@@ -90,8 +121,9 @@ const Login = () => {
 						</div>
 						<button
 							type="submit"
-							className="w-full py-[14px] bg-highlight rounded-md uppercase text-white font-[700]">
+							className="w-full py-[14px] bg-highlight rounded-md uppercase text-white font-[700] flex items-center justify-center gap-5">
 							Login
+							{isSubmitting && <LuLoader2 className="size-6 animate-spin" />}
 						</button>
 					</form>
 					<div className=" space-y-4 mt-5 flex flex-col items-center">
@@ -106,7 +138,7 @@ const Login = () => {
 			</div>
 			<div className="w-1/2 flex flex-col items-center">
 				<img src="/ce2c9c3eb6cd3e3b9f499eb5a26a5583.png" alt="icon" />
-				<h2 className="text-[96px] font-[800]">CastMe</h2>
+				<h2 className="text-[96px] font-[800] md:text-[78px]">CastMe</h2>
 			</div>
 		</div>
 	);
