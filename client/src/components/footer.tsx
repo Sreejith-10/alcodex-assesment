@@ -9,7 +9,7 @@ const Footer = () => {
 				<div className="w-[500px] h-[240px] md:h-[140px] sm:w-auto">
 					<span className="text-[72px] font-[800] md:text-[64px]">CastMe</span>
 				</div>
-				<div className="w-[684px] h-[240px] md:w-full md:h-auto flex gap-[80px] md:gap-10 md:justify-between">
+				<div className="w-[684px] h-[240px] md:w-full md:h-auto flex gap-[80px] md:gap-3 sm:gap-1 lg:gap-5 md:justify-between">
 					<div className="space-y-[16px]">
 						<h2 className="font-[600]">Column One</h2>
 						<ul className="space-y-[16px]">

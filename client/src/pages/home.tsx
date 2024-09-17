@@ -36,10 +36,10 @@ const Home = () => {
 				</div>
 			) : (
 				<div className="space-y-4">
-					<h1 className="font-semibold text-3xl sm:text-wrap">
+					<h1 className="font-semibold text-3xl sm:text-center">
 						Please authenticate yourself
 					</h1>
-					<div className="flex gap-5 items-center justify-center">
+					<div className="flex gap-5 items-center justify-center sm:px-3">
 						<Link
 							to={"/login"}
 							className="w-full sm:w-[50%] py-[14px] text-center bg-highlight rounded-md uppercase text-white font-[700]">

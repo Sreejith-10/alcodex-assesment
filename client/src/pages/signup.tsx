@@ -7,7 +7,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {useForm} from "react-hook-form";
 import axios, {AxiosError} from "axios";
 import {useToast} from "../hooks";
-import {LuLoader2} from "react-icons/lu";
+import {Button} from "../components/button";
 
 const Signup = () => {
 	const [showPass, setShowPass] = useState(false);
@@ -137,12 +137,12 @@ const Signup = () => {
 						<div className="flex justify-between">
 							<Link to={"/login"}>Login</Link>
 						</div>
-						<button
+						<Button
 							type="submit"
-							className="w-full py-[14px] bg-highlight rounded-md uppercase text-white font-[700] flex items-center justify-center gap-5">
+							className="w-full py-[14px] bg-highlight rounded-md uppercase text-white font-[700]"
+							isLoading={isSubmitting}>
 							Signup
-							{isSubmitting && <LuLoader2 className="size-6 animate-spin" />}
-						</button>
+						</Button>
 					</form>
 					<div className=" space-y-4 mt-5 flex flex-col items-center">
 						<div>OR</div>

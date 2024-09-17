@@ -7,7 +7,7 @@ import * as z from "zod";
 import {loginSchema} from "../schema/loginSchema";
 import axios, {AxiosError} from "axios";
 import {useToast} from "../hooks";
-import {LuLoader2} from "react-icons/lu";
+import {Button} from "../components/button";
 
 const Login = () => {
 	const [showPass, setShowPass] = useState(false);
@@ -119,12 +119,12 @@ const Login = () => {
 							<Link to={"/signup"}>Signup</Link>
 							<Link to={"#"}>Forgot password?</Link>
 						</div>
-						<button
+						<Button
 							type="submit"
-							className="w-full py-[14px] bg-highlight rounded-md uppercase text-white font-[700] flex items-center justify-center gap-5">
+							className="w-full py-[14px] bg-highlight rounded-md uppercase text-white font-[700]"
+							isLoading={isSubmitting}>
 							Login
-							{isSubmitting && <LuLoader2 className="size-6 animate-spin" />}
-						</button>
+						</Button>
 					</form>
 					<div className=" space-y-4 mt-5 flex flex-col items-center">
 						<div>OR</div>
